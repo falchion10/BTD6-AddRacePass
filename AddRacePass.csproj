@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <OutputType>Library</OutputType>
+        <AssemblyName>AddRacePass</AssemblyName>
+        <RootNamespace>AddRacePass</RootNamespace>
+        <LangVersion>latest</LangVersion>
+        <Nullable>disable</Nullable>
+    </PropertyGroup>
+
+    <!-- Checking if running Windows or Mac -->
+    <PropertyGroup>
+        <WindowsBTD6Dir>C:\Program Files (x86)\Steam\steamapps\common\BloonsTD6</WindowsBTD6Dir>
+        <MacBTD6Dir>$(HOME)/Library/Application Support/CrossOver/Bottles/Steam/drive_c/Program Files (x86)/Steam/steamapps/common/BloonsTD6</MacBTD6Dir>
+
+        <BTD6Dir Condition="'$(BTD6Dir)' == '' AND Exists('$(WindowsBTD6Dir)')">$(WindowsBTD6Dir)</BTD6Dir>
+        <BTD6Dir Condition="'$(BTD6Dir)' == '' AND Exists('$(MacBTD6Dir)')">$(MacBTD6Dir)</BTD6Dir>
+    </PropertyGroup>
+
+    <!-- References to load -->
+    <ItemGroup>
+        <Reference Include="MelonLoader">
+            <HintPath>$(BTD6Dir)/MelonLoader/net6/MelonLoader.dll</HintPath>
+        </Reference>
+
+        <Reference Include="Btd6ModHelper">
+            <HintPath>$(BTD6Dir)/Mods/Btd6ModHelper.dll</HintPath>
+        </Reference>
+
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(BTD6Dir)/MelonLoader/Il2CppAssemblies/Assembly-CSharp.dll</HintPath>
+        </Reference>
+
+        <Reference Include="Il2CppInterop.Runtime">
+            <HintPath>$(BTD6Dir)/MelonLoader/net6/Il2CppInterop.Runtime.dll</HintPath>
+        </Reference>
+
+        <Reference Include="Il2Cppmscorlib">
+            <HintPath>$(BTD6Dir)/MelonLoader/Il2CppAssemblies/Il2Cppmscorlib.dll</HintPath>
+        </Reference>
+
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(BTD6Dir)/MelonLoader/Il2CppAssemblies/UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+
+        <Reference Include="UnityEngine.InputLegacyModule">
+            <HintPath>$(BTD6Dir)/MelonLoader/Il2CppAssemblies/UnityEngine.InputLegacyModule.dll</HintPath>
+        </Reference>
+
+        <Reference Include="Il2CppNinjaKiwi.LiNK.Client">
+            <HintPath>$(BTD6Dir)/MelonLoader/Il2CppAssemblies/Il2CppNinjaKiwi.LiNK.Client.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+</Project>
