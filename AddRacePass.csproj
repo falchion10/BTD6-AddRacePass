@@ -11,7 +11,7 @@
 
     <!-- Checking if running Windows or Mac -->
     <PropertyGroup>
-        <WindowsBTD6Dir>C:\Program Files (x86)\Steam\steamapps\common\BloonsTD6</WindowsBTD6Dir>
+        <WindowsBTD6Dir>C:/Program Files (x86)/Steam/steamapps/common/BloonsTD6</WindowsBTD6Dir>
         <MacBTD6Dir>$(HOME)/Library/Application Support/CrossOver/Bottles/Steam/drive_c/Program Files (x86)/Steam/steamapps/common/BloonsTD6</MacBTD6Dir>
 
         <BTD6Dir Condition="'$(BTD6Dir)' == '' AND Exists('$(WindowsBTD6Dir)')">$(WindowsBTD6Dir)</BTD6Dir>
